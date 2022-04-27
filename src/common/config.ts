@@ -25,8 +25,11 @@ class Config {
     };
   }
 
-  public getTimeExpire() {
-    return this.get<number>('EXPIRED');
+  public getJwtConfig() {
+    return {
+      secret: this.get<string>('JWT_SECRET'),
+      signOptions: { expiresIn: this.get<string>('JWT_SECRET_EXPIRES') },
+    };
   }
 }
 
